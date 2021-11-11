@@ -6,8 +6,8 @@
     ]"
     :placeholder="placeholder"
     :type="type"
-    :value="modelValue"
-    @input='$emit("update:modelValue", $event.target.value)'
+    :value="value"
+    @input="handleInput"
   />
 </template>
 
@@ -20,10 +20,8 @@ export default {
     placeholder: {
       type: String
     },
-    modelValue: {
-      type: String,
-      required: true,
-      default: ''
+    value: {
+      type: String
     },
     type: {
       type: String
@@ -33,9 +31,21 @@ export default {
     }
   },
 
+  data () {
+    return {
+      text: this.value
+    }
+  },
+
   computed: {
     widthClass () {
       return `c-input--${this.width}-width`
+    }
+  },
+
+  methods: {
+    handleInput (e) {
+      this.$emit('input', e.target.value)
     }
   }
 

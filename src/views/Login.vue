@@ -3,7 +3,7 @@
     <Card class="p-login__card" max-width="425">
       <Headline level="1" size="1" :has-divider="true">Sign In</Headline>
       <p class="u-margin-bottom-30">Sign in below to access your dashboard</p>
-      <Form @submit.prevent="login">
+      <Form @submitForm="login">
         <Input type="email" v-model="email" placeholder="Email address" />
         <Input type="password" v-model="password" placeholder="Password" />
         <Button type="submit" level="secondary">Login</Button>
@@ -42,14 +42,12 @@ export default {
     async login () {
       try {
         await Auth.signIn(this.email, this.password)
-        this.$router.push({ name: 'Dashboard' })
+        alert('worked')
+        // this.$router.push({ name: 'Dashboard' })
       } catch (error) {
         alert(error.message)
       }
     }
-  },
-  mounted () {
-    console.log('loaded')
   }
 }
 </script>
