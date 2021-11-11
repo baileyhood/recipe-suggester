@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-recipesuggester-dev-125058-authRole",
+      "UnauthRoleArn": "arn:aws:iam::984357147275:role/amplify-recipesuggester-dev-125058-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::984357147275:role/amplify-recipesuggester-dev-125058-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-recipesuggester-dev-125058-deployment",
+      "UnauthRoleName": "amplify-recipesuggester-dev-125058-unauthRole",
+      "StackName": "amplify-recipesuggester-dev-125058",
+      "StackId": "arn:aws:cloudformation:us-east-1:984357147275:stack/amplify-recipesuggester-dev-125058/ef6adeb0-4317-11ec-8f19-0eb78dc730e3",
+      "AmplifyAppId": "d1gas8cv75sm0a"
+    },
+    "categories": {
+      "auth": {
+        "recipesuggesterb6bb5a1d": {}
+      }
+    }
+  }
+}
