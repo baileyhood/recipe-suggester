@@ -1,6 +1,6 @@
 <template>
   <div class="p-login">
-    <Card class="p-login__card" max-width="425">
+    <Card class="p-login__card" max-width="550">
       <Headline level="1" size="1" :has-divider="true">Sign In</Headline>
       <p class="u-margin-bottom-30">Sign in below to access your dashboard</p>
       <Form @submitForm="login">
@@ -54,12 +54,15 @@ export default {
 
 <style lang="scss">
 .p-login {
+  background-size: cover;
+  background-image: url('../assets/images/image-plants-in-corner.jpg');
   display: flex;
+  height: 100vh;
   justify-content: center;
   text-align: center;
 
   &__card {
-    margin-top: rem-calc(100);
+    align-self: center;
   }
 }
 </style>

@@ -54,12 +54,14 @@ export default {
 
 <style lang="scss">
 .c-input {
-  border: 1px solid $color-primary-lightgrey;
+  box-shadow: 0 0 10px $color-secondary-lightgrey;
+  border: none;
+  border-radius: 5px;
   color: $color-primary-grey;
   font-family: $font-primary;
   font-size: rem-calc(16);
   margin-bottom: rem-calc(20);
-  padding: rem-calc(15) rem-calc(10);
+  padding: rem-calc(20) rem-calc(15);
   width: 100%;
 
   &::placeholder {

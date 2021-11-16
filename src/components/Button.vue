@@ -44,7 +44,7 @@ export default {
 style.<style lang="scss">
 .c-button {
   background-color: transparent;
-  border: 1px solid $color-primary-lightgrey;
+  border: none;
   cursor: pointer;
   display: block;
   font-family: $font-primary;
@@ -55,11 +55,12 @@ style.<style lang="scss">
   }
 
   .c-button--primary {
-  background-color: $color-primary-yellow;
-  color: $color-primary-grey;
+    background-color: $color-primary-yellow;
+    color: $color-primary-grey;
   }
 
   .c-button--secondary {
-  background-color: $color-primary-blue;
+    background-color: $color-mint-green;
+    color: $color-primary-green;
   }
 </style>

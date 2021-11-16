@@ -21,7 +21,7 @@ export default {
   padding: rem-calc(30);
 
   &__headline {
-    font-family: $font-secondary;
+    font-family: $font-primary;
     font-size: rem-calc(30);
     margin-bottom: rem-calc(10);
   }
