@@ -56,6 +56,7 @@ export default {
 .p-login {
   background-size: cover;
   background-image: url('../assets/images/image-plants-in-corner.jpg');
+  background-position: 50% 50%;
   display: flex;
   height: 100vh;
   justify-content: center;
