@@ -1,10 +1,10 @@
 <template>
   <div class="p-register">
-    <Card class="p-register__card" max-width="425">
+    <Card class="p-register__card" max-width="550">
       <div v-if="!formWasSubmitted"  class="p-register__form-container">
-        <Headline level="1" size="1" :has-divider="true">BookNotes</Headline>
+        <Headline level="1" size="1" :has-divider="true">Sign Up</Headline>
         <p class="p-register__text">Sign up for an account to get started with BookNotes</p>
-        <Form @submit.prevent="register">
+        <Form @submitForm="register">
           <Input
             placeholder="First name"
             type="text"
@@ -27,13 +27,13 @@
             type="password"
             v-model="password"
           />
-          <Button level="primary" type="submit">Register</Button>
+          <Button level="secondary" type="submit">Register</Button>
           <p class="p-register__sign-in-text">Already registered? <Link :to="{name: 'Login'}">Sign In</Link></p>
         </Form>
       </div>
       <div v-else >
         <RegisterMessageSuccess/>
-        <Button linkTo="Login" level="primary">Login</Button>
+        <Button linkTo="Login" level="secondary">Login</Button>
       </div>
       <RegisterMessageError v-if="hasError" class="u-margin-top-15"  :message="errorMessage" />
     </Card>
@@ -76,13 +76,15 @@ export default {
   },
   methods: {
     async register () {
+      console.log('register')
       try {
         await Auth.signUp({
           username: this.email,
           password: this.password,
           attributes: {
             'custom:firstName': this.firstName,
-            'custom:lastName': this.lastName
+            'custom:lastName': this.lastName,
+            email: this.email
           }
         })
         this.hasError = false
@@ -98,12 +100,17 @@ export default {
 
   <style lang="scss">
   .p-register {
-  display: flex;
-  justify-content: center;
-  text-align: center;
+    background-size: cover;
+    background-image: url('../assets/images/image-herb-sprig.jpg');
+    background-position: 50% 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
 
   &__card {
-    margin-top: rem-calc(100);
+    background-color: #fff;
+    align-self: center;
   }
 
   &__label {

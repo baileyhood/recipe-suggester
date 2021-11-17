@@ -1,8 +1,19 @@
 <template>
-  <router-link class="c-link">
+  <router-link class="c-link" :to="to">
     <slot></slot>
   </router-link>
 </template>
+
+<script>
+export default {
+  props: {
+    to: {
+      type: Object,
+      required: true
+    }
+  }
+}
+</script>
 
 <style lang="scss">
   .c-link {
