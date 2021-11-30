@@ -8,6 +8,9 @@
         <Input type="password" v-model="password" placeholder="Password" />
         <Button type="submit" level="secondary">Login</Button>
       </Form>
+      <p class="u-margin-top-25">
+        Need to <Link :to="{name: 'Sign Up'}">sign up?</Link>
+      </p>
     </Card>
   </div>
 </template>
@@ -18,6 +21,7 @@ import Button from '@/components/Button.vue'
 import Card from '@/components/Card.vue'
 import Headline from '@/components/Headline.vue'
 import Input from '@/components/Input.vue'
+import Link from '@/components/Link.vue'
 
 import Form from '@/components/Form'
 export default {
@@ -28,7 +32,8 @@ export default {
     Card,
     Form,
     Headline,
-    Input
+    Input,
+    Link
   },
 
   data () {
@@ -42,8 +47,8 @@ export default {
     async login () {
       try {
         await Auth.signIn(this.email, this.password)
-        alert('worked')
-        // this.$router.push({ name: 'Dashboard' })
+
+        this.$router.push({ name: 'Dashboard' })
       } catch (error) {
         alert(error.message)
       }
