@@ -52,6 +52,10 @@ $headline-margin-space: rem-calc(30);
   font-weight: $font-weight-bold;
   }
 
+  .c-headline-2 {
+    font-size: rem-calc(40);
+  }
+
   .c-headline-3 {
   font-size: rem-calc(30);
   margin-bottom: $headline-margin-space;
