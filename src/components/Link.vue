@@ -18,7 +18,6 @@ export default {
 <style lang="scss">
   .c-link {
   color: $color-primary-grey;
-  font-weight: $font-weight-bold;
   position: relative;
   text-decoration: none;
 

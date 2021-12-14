@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login'
 import SignUp from '../views/SignUp'
 import Dashboard from '../views/Dashboard'
+import Account from '../views/Account'
 import { Auth } from 'aws-amplify'
 
 Vue.use(VueRouter)
@@ -31,6 +32,11 @@ const routes = [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: Account
   }
 ]
 

@@ -58,7 +58,7 @@ export default {
   border: none;
   border-radius: 5px;
   color: $color-primary-grey;
-  font-family: $font-primary;
+  font-family: $font-secondary;
   font-size: rem-calc(16);
   margin-bottom: rem-calc(20);
   padding: rem-calc(20) rem-calc(15);
@@ -67,9 +67,9 @@ export default {
   &::placeholder {
     color: $color-primary-grey;
   }
-  }
+}
 
-  .c-input--50-width {
+.c-input--50-width {
   @include breakpoint('tablet-up') {
     width: calc(50% - 10px);
   }

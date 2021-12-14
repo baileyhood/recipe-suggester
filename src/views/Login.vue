@@ -9,7 +9,7 @@
         <Button type="submit" level="secondary">Login</Button>
       </Form>
       <p class="u-margin-top-25">
-        Need to <Link :to="{name: 'Sign Up'}">sign up?</Link>
+        Don't have an account? <Link :to="{name: 'Sign Up'}">Sign Up</Link>
       </p>
     </Card>
   </div>
@@ -47,7 +47,6 @@ export default {
     async login () {
       try {
         await Auth.signIn(this.email, this.password)
-
         this.$router.push({ name: 'Dashboard' })
       } catch (error) {
         alert(error.message)

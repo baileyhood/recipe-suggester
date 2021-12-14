@@ -47,7 +47,7 @@ style.<style lang="scss">
   border: none;
   cursor: pointer;
   display: block;
-  font-family: $font-primary;
+  font-family: $font-secondary;
   font-size: rem-calc(20);
   padding: rem-calc(15);
   text-decoration: none;

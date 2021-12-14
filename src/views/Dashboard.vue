@@ -1,23 +1,37 @@
 <template>
   <main>
     <section class="header container">
-      <div class="container logo-container">
+      <div class="container">
         <p class="logo">Recipe<span>Suggestor</span></p>
         <p class="u-font-color-lightgrey">Use what you have. Get what you need.</p>
       </div>
       <div class="container">
-        <p>Hello, name</p>
-        <Headline level="1" size="2">Find Recipes</Headline>
+        <Input type="text" placeholder="Search" />
+      </div>
+      <div class="container">
+          <Link :to="{ name: 'Account' }">My Account</Link>
       </div>
     </section>
   </main>
 </template>
 
 <script>
-import Headline from '@/components/Headline'
+import { Auth } from 'aws-amplify'
+import Input from '@/components/Input'
+import Link from '@/components/Link'
 export default {
+  name: 'Dashboard',
   components: {
-    Headline
+    Input,
+    Link
+  },
+  data () {
+    return {
+      userInfo: {}
+    }
+  },
+  async mounted () {
+    this.userInfo = await Auth.currentAuthenticatedUser()
   }
 }
 </script>
@@ -27,17 +41,11 @@ export default {
   }
 
   .logo {
-    color: $color-white;
     font-size: rem-calc(26);
     font-weight: $font-weight-bold;
 
     span {
       color: $color-primary-green;
     }
-  }
-
-  .logo-container {
-    background-color: $color-primary-grey;
-    color: $color-white;
   }
 </style>
