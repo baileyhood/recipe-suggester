@@ -1,15 +1,12 @@
 <template>
   <main>
-    <section class="header container">
-      <div class="container">
-        <p class="logo">Recipe<span>Suggestor</span></p>
-        <p class="u-font-color-lightgrey">Use what you have. Get what you need.</p>
+    <Navigation />
+    <section class="container row">
+      <div class="column">
+        <Headline level="1" size="1">Find recipes with ingredients you already have.</Headline>
       </div>
-      <div class="container">
-        <Input type="text" placeholder="Search" />
-      </div>
-      <div class="container">
-          <Link :to="{ name: 'Account' }">My Account</Link>
+      <div class="column">
+        <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="">
       </div>
     </section>
   </main>
@@ -17,13 +14,14 @@
 
 <script>
 import { Auth } from 'aws-amplify'
-import Input from '@/components/Input'
-import Link from '@/components/Link'
+import Headline from '@/components/Headline'
+import Navigation from '@/components/Navigation'
+
 export default {
   name: 'Dashboard',
   components: {
-    Input,
-    Link
+    Headline,
+    Navigation
   },
   data () {
     return {
@@ -35,17 +33,10 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-  .header {
-    display: flex;
-  }
-
-  .logo {
-    font-size: rem-calc(26);
-    font-weight: $font-weight-bold;
-
-    span {
-      color: $color-primary-green;
+<style lang="scss">
+  .dashboard {
+    &__hero-image {
+      max-width: 600px
     }
   }
 </style>

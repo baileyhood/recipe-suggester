@@ -8,5 +8,5 @@ body {
 }
 
 .container {
-	padding: rem-calc(30);
+	padding: rem-calc(30) $site-padding;
 }
