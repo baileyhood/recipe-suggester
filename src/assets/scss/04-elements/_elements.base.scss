@@ -9,4 +9,10 @@ body {
 
 .container {
 	padding: rem-calc(30) $site-padding;
+
+	&__inner {
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 }

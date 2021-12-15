@@ -1,12 +1,14 @@
 <template>
   <main>
     <Navigation />
-    <section class="container row">
-      <div class="column">
-        <Headline level="1" size="1">Find recipes with ingredients you already have.</Headline>
-      </div>
-      <div class="column">
-        <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="">
+    <section class="container">
+      <div class="container__inner row">
+        <div class="column">
+          <Headline level="1" size="1">Find recipes with ingredients you already have.</Headline>
+        </div>
+        <div class="column">
+          <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="">
+        </div>
       </div>
     </section>
   </main>
@@ -36,7 +38,8 @@ export default {
 <style lang="scss">
   .dashboard {
     &__hero-image {
-      max-width: 600px
+      min-width: 600px;
+      width: 100%;
     }
   }
 </style>

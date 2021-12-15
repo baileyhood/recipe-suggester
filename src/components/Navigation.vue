@@ -1,7 +1,9 @@
 <template>
   <header class="header container">
-    <Logo/>
-    <Link :to="{ name: 'Account' }">My Account</Link>
+    <div class="header__inner container__inner row">
+      <Logo/>
+      <Link :to="{ name: 'Account' }">My Account</Link>
+    </div>
   </header>
 </template>
 <script>
@@ -19,8 +21,11 @@ export default {
 <style lang="scss" scoped>
   .header {
     border-bottom: 1px solid $color-secondary-lightgrey;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 </style>
