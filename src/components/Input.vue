@@ -56,7 +56,7 @@ export default {
 .c-input {
   box-shadow: 0 0 10px $color-secondary-lightgrey;
   border: none;
-  border-radius: 5px;
+  border-radius: $site-border-radius;
   color: $color-primary-grey;
   font-family: $font-secondary;
   font-size: rem-calc(16);

@@ -1,10 +1,15 @@
 <template>
-  <main>
+  <main class="dashboard">
     <Navigation />
     <section class="container">
       <div class="container__inner row">
-        <div class="column">
-          <Headline level="1" size="1">Find recipes with ingredients you already have.</Headline>
+        <div class="column row row--vertical-center">
+          <Headline level="1" size="1">Find recipes with ingredients you already&nbsp;have.</Headline>
+          <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
+          <div class="dashboard__hero-button-container row row--no-wrap">
+            <Button class="dashboard__hero-button" level="primary">Get Started</Button>
+            <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
+          </div>
         </div>
         <div class="column">
           <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="">
@@ -16,12 +21,14 @@
 
 <script>
 import { Auth } from 'aws-amplify'
+import Button from '@/components/Button'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
 
 export default {
   name: 'Dashboard',
   components: {
+    Button,
     Headline,
     Navigation
   },
@@ -37,9 +44,22 @@ export default {
 </script>
 <style lang="scss">
   .dashboard {
+    &__hero-button {
+      width: 47%;
+    }
+
+    &__hero-button-container {
+      display: flex;
+      max-width: 415px;
+    }
+
     &__hero-image {
       min-width: 600px;
       width: 100%;
+    }
+
+    &__hero-subheadline {
+      max-width: 400px;
     }
   }
 </style>

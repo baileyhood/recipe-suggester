@@ -5,7 +5,7 @@
       'c-button',
       `c-button--${level}`
     ]"
-    :to="{ name: linkTo }"
+    :to="getLink"
   >
     <slot></slot>
   </component>
@@ -34,6 +34,9 @@ export default {
   },
 
   computed: {
+    getLink () {
+      return this.linkTo ? { name: this.linkTo } : null
+    },
     type () {
       return this.linkTo ? 'router-link' : 'button'
     }
@@ -52,15 +55,17 @@ style.<style lang="scss">
   padding: rem-calc(15);
   text-decoration: none;
   width: 100%;
+  border-radius: $site-border-radius;
   }
 
   .c-button--primary {
-    background-color: $color-primary-yellow;
-    color: $color-primary-grey;
+    background-color: $color-primary-green;
+    color: $color-white;
   }
 
   .c-button--secondary {
-    background-color: $color-mint-green;
+    background-color: $color-white;
+    border: 1px solid $color-primary-green;
     color: $color-primary-green;
   }
 </style>

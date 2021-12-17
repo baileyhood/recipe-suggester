@@ -15,6 +15,7 @@ export default {
   .logo {
     font-size: rem-calc(22);
     line-height: 1;
+    margin-bottom: 0;
     span {
       display: block;
       color: $color-primary-green;

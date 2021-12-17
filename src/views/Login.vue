@@ -6,7 +6,7 @@
       <Form @submitForm="login">
         <Input type="email" v-model="email" placeholder="Email address" />
         <Input type="password" v-model="password" placeholder="Password" />
-        <Button type="submit" level="secondary">Login</Button>
+        <Button type="submit" level="primary">Login</Button>
       </Form>
       <p class="u-margin-top-25">
         Don't have an account? <Link :to="{name: 'Sign Up'}">Sign Up</Link>

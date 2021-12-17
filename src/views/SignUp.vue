@@ -27,7 +27,7 @@
             type="password"
             v-model="password"
           />
-          <Button level="secondary" type="submit">Register</Button>
+          <Button level="primary" type="submit">Register</Button>
           <p class="p-register__sign-in-text">Already registered? <Link :to="{name: 'Login'}">Sign In</Link></p>
         </Form>
       </div>
