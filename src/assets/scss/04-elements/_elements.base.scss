@@ -10,6 +10,10 @@ body {
 p {
 	color: $color-lightgrey-100;
 	margin-bottom: $site-vertical-margin;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .container {

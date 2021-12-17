@@ -20,7 +20,8 @@ export default {
 <style lang="scss">
 .c-card {
   box-shadow: 0px 0px 52px rgba($color-black, 0.1);
-  border-radius: 15px;
+  background-color: $color-white;
+  border-radius: $site-border-radius;
   padding: rem-calc(30);
 }
 </style>

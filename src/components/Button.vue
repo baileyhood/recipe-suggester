@@ -51,8 +51,8 @@ style.<style lang="scss">
   cursor: pointer;
   display: block;
   font-family: $font-secondary;
-  font-size: rem-calc(20);
-  padding: rem-calc(15);
+  font-size: rem-calc(16);
+  padding: rem-calc(15) rem-calc(10);
   text-decoration: none;
   width: 100%;
   border-radius: $site-border-radius;

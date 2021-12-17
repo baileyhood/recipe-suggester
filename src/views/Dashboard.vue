@@ -11,8 +11,12 @@
             <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
           </div>
         </div>
-        <div class="column">
-          <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="">
+        <div class="column dashboard__hero-image-container">
+          <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="Grain salad dish on white table">
+          <Card class="dashboard__hero-card" max-width="250">
+            <p class="u-font-primary">Grain Salad</p>
+            <p>Kale, grape tomatoes, millet</p>
+          </Card>
         </div>
       </div>
     </section>
@@ -22,6 +26,7 @@
 <script>
 import { Auth } from 'aws-amplify'
 import Button from '@/components/Button'
+import Card from '@/components/Card'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
 
@@ -29,6 +34,7 @@ export default {
   name: 'Dashboard',
   components: {
     Button,
+    Card,
     Headline,
     Navigation
   },
@@ -60,6 +66,16 @@ export default {
 
     &__hero-subheadline {
       max-width: 400px;
+    }
+
+    &__hero-image-container {
+      position: relative;
+    }
+
+    &__hero-card {
+      position: absolute;
+      bottom: -35px;
+      left: 35px;
     }
   }
 </style>
