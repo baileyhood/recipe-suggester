@@ -14,7 +14,7 @@
         <div class="column dashboard__hero-image-container">
           <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="Grain salad dish on white table">
           <Card class="dashboard__hero-card" max-width="250">
-            <p class="u-font-primary">Grain Salad</p>
+            <p class="u-font-primary u-margin-bottom-10">Grain Salad</p>
             <p>Kale, grape tomatoes, millet</p>
           </Card>
         </div>
