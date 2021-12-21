@@ -1,6 +1,6 @@
 <template>
-  <header class="header container">
-    <div class="header__inner container__inner row">
+  <header class="header section">
+    <div class="header__inner section__inner row">
       <Logo/>
       <Link :to="{ name: 'Account' }">My Account</Link>
     </div>

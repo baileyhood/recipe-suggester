@@ -1,8 +1,8 @@
 <template>
   <main class="dashboard">
     <Navigation />
-    <section class="container">
-      <div class="container__inner row">
+    <section class="section">
+      <div class="section__inner row">
         <div class="column row row--vertical-center">
           <Headline level="1" size="1">Find recipes with ingredients you already&nbsp;have.</Headline>
           <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
