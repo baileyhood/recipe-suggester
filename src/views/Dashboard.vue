@@ -3,15 +3,15 @@
     <Navigation />
     <section class="section">
       <div class="section__inner row">
-        <div class="column row row--vertical-center">
+        <div class="col-xs-12 col-md-6  row row--vertical-center">
           <Headline level="1" size="1">Find recipes with ingredients you already&nbsp;have.</Headline>
           <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
-          <div class="dashboard__hero-button-container row row--no-wrap">
+          <div class="dashboard__hero-button-container">
             <Button class="dashboard__hero-button" level="primary">Get Started</Button>
             <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
           </div>
         </div>
-        <div class="column dashboard__hero-image-container">
+        <div class="col-xs-12 col-md-6  dashboard__hero-image-container">
           <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="Grain salad dish on white table">
           <Card class="dashboard__hero-card" max-width="250">
             <p class="u-font-primary u-margin-bottom-10">Grain Salad</p>
@@ -51,12 +51,13 @@ export default {
 <style lang="scss">
   .dashboard {
     &__hero-button {
-      width: 47%;
+      width: 35%;
+      margin-right: rem-calc(20);
     }
 
     &__hero-button-container {
       display: flex;
-      max-width: 415px;
+      align-items: flex-start;
     }
 
     &__hero-image {

@@ -1,8 +1,10 @@
 <template>
   <header class="header section">
     <div class="header__inner section__inner row">
-      <Logo/>
-      <Link :to="{ name: 'Account' }">My Account</Link>
+      <Logo class="col-6"/>
+      <div class="col-auto">
+        <Link :to="{ name: 'Account' }">My Account</Link>
+      </div>
     </div>
   </header>
 </template>

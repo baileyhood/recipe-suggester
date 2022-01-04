@@ -1,7 +1,7 @@
-// Media Queries
+// Media Queries | Based on Bootstrap Grid's media queries: https://getbootstrap.com/docs/4.0/layout/grid/#grid-options
 @mixin breakpoint($size) {
 	@if $size==phone-only {
-		@media (max-width: 599px) {
+		@media (max-width: 576px) {
 			@content;
 		}
 	}
