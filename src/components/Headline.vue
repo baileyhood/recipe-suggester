@@ -47,7 +47,7 @@ export default {
 $headline-margin-space: rem-calc(30);
 
   .c-headline-1 {
-    font-size: rem-calc(50);
+    font-size: clamp(rem-calc(30), 5vw, rem-calc(50));
     margin-bottom: $headline-margin-space;
     font-weight: $font-weight-semibold;
     line-height: 1.2;

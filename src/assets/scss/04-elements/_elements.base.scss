@@ -17,7 +17,10 @@ p {
 }
 
 .section {
-	padding: rem-calc(30) $site-padding;
+	padding: rem-calc(30) $site-padding-mobile;
+	@include breakpoint(tablet-up) {
+		padding: rem-calc(30) $site-padding;
+	}
 
 	&__inner {
 		max-width: 1200px;

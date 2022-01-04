@@ -6,6 +6,12 @@
 		}
 	}
 
+	@else if $size==phone-up {
+		@media (min-width: 576px) {
+			@content;
+		}
+	}
+
 	@else if $size==tablet-up {
 		@media (min-width: 768px) {
 			@content;
