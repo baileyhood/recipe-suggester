@@ -22,6 +22,11 @@
         </div>
       </div>
     </section>
+    <section class="section section--lightgrey">
+      <section class="section__inner row">
+        <Headline level="2" size="2" class="u-text-center">Recipes</Headline>
+      </section>
+    </section>
   </main>
 </template>
 

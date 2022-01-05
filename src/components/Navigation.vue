@@ -23,6 +23,7 @@ export default {
 <style lang="scss" scoped>
   .header {
     border-bottom: 1px solid $color-secondary-lightgrey;
+    margin-bottom: inherit;
 
     &__inner {
       display: flex;

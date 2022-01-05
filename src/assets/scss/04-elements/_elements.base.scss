@@ -18,9 +18,11 @@ p {
 
 .section {
 	padding: rem-calc(25) $site-padding-mobile;
+	margin-bottom: rem-calc(25);
 
 	@include breakpoint(tablet-up) {
 		padding: rem-calc(30) $site-padding;
+		margin-bottom: rem-calc(50);
 	}
 
 	&__inner {
@@ -28,4 +30,8 @@ p {
 		margin-left: auto;
 		margin-right: auto;
 	}
+}
+
+.section--lightgrey {
+	background-color: $color-lightgrey-200
 }
