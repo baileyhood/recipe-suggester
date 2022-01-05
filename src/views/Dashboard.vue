@@ -3,15 +3,17 @@
     <Navigation />
     <section class="section">
       <div class="section__inner row">
-        <div class="col-xs-12 col-md-7 col-lg-6  row row--vertical-center">
-          <Headline level="1" size="1">Find recipes with ingredients you already&nbsp;have.</Headline>
-          <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
-          <div class="dashboard__hero-button-container">
-            <Button class="dashboard__hero-button" level="primary">Get Started</Button>
-            <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
+        <div class="col-xs-12 col-md-7 col-lg-6  u-site-vertical-margin@mobile">
+          <div class="row">
+            <Headline level="1" size="1">Find recipes with ingredients you already&nbsp;have.</Headline>
+            <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
+            <div class="dashboard__hero-button-container">
+              <Button class="dashboard__hero-button" level="primary">Get Started</Button>
+              <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
+            </div>
           </div>
         </div>
-        <div class="col-xs-12 col-md-5 col-lg-6  row  dashboard__hero-image-container">
+        <div class="col-xs-12 col-md-5 col-lg-6  container  dashboard__hero-image-container  u-no-gutters">
           <img class="dashboard__hero-image" src="@/assets/images/image-grain-salad.jpg" alt="Grain salad dish on white table">
           <Card class="dashboard__hero-card" max-width="250">
             <p class="u-font-primary u-margin-bottom-10">Grain Salad</p>
@@ -52,12 +54,14 @@ export default {
   .dashboard {
     &__hero-button {
       margin-right: rem-calc(15);
+      max-width: none;
 
       &:last-child {
         margin-right: 0;
       }
       @include breakpoint(tablet-up) {
-        width: 35%;
+        width: 100%;
+        max-width: 200px;
       }
     }
 
@@ -86,6 +90,11 @@ export default {
       position: absolute;
       bottom: -35px;
       left: 35px;
+      display: none;
+
+      @include breakpoint(tablet-up) {
+        display: block;
+      }
     }
   }
 </style>

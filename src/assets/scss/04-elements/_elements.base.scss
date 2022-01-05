@@ -17,7 +17,8 @@ p {
 }
 
 .section {
-	padding: rem-calc(30) $site-padding-mobile;
+	padding: rem-calc(25) $site-padding-mobile;
+
 	@include breakpoint(tablet-up) {
 		padding: rem-calc(30) $site-padding;
 	}
