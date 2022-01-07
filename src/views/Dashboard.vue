@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { Auth } from 'aws-amplify'
+import { Auth, API } from 'aws-amplify'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
 import Headline from '@/components/Headline'
@@ -52,6 +52,9 @@ export default {
   },
   async mounted () {
     this.userInfo = await Auth.currentAuthenticatedUser()
+    API.get('recipeAPI', '/items').then((result) => {
+      console.log({ result })
+    }).catch((error) => { console.error(error) })
   }
 }
 </script>

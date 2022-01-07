@@ -1,0 +1,42 @@
+{
+  "paths": [
+    {
+      "name": "/items",
+      "lambdaFunction": "recipeLambda",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/items"
+    }
+  ],
+  "resourceName": "recipeAPI",
+  "apiName": "recipeAPI",
+  "functionArns": [
+    {
+      "lambdaFunction": "recipeLambda"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-recipesuggester-dev-125058-authRole",
+    "unAuthRoleName": "amplify-recipesuggester-dev-125058-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "recipeLambda",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}
