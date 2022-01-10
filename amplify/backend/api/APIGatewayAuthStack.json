@@ -64,7 +64,7 @@
                           }
                         ]
                       },
-                      "/POST/items/*"
+                      "/POST/recipes/*"
                     ]
                   ]
                 },
@@ -94,7 +94,7 @@
                           }
                         ]
                       },
-                      "/POST/items"
+                      "/POST/recipes"
                     ]
                   ]
                 },
@@ -124,7 +124,7 @@
                           }
                         ]
                       },
-                      "/GET/items/*"
+                      "/GET/recipes/*"
                     ]
                   ]
                 },
@@ -154,7 +154,7 @@
                           }
                         ]
                       },
-                      "/GET/items"
+                      "/GET/recipes"
                     ]
                   ]
                 },
@@ -184,7 +184,7 @@
                           }
                         ]
                       },
-                      "/PUT/items/*"
+                      "/PUT/recipes/*"
                     ]
                   ]
                 },
@@ -214,7 +214,7 @@
                           }
                         ]
                       },
-                      "/PUT/items"
+                      "/PUT/recipes"
                     ]
                   ]
                 },
@@ -244,7 +244,7 @@
                           }
                         ]
                       },
-                      "/PATCH/items/*"
+                      "/PATCH/recipes/*"
                     ]
                   ]
                 },
@@ -274,7 +274,7 @@
                           }
                         ]
                       },
-                      "/PATCH/items"
+                      "/PATCH/recipes"
                     ]
                   ]
                 },
@@ -304,7 +304,7 @@
                           }
                         ]
                       },
-                      "/DELETE/items/*"
+                      "/DELETE/recipes/*"
                     ]
                   ]
                 },
@@ -334,7 +334,7 @@
                           }
                         ]
                       },
-                      "/DELETE/items"
+                      "/DELETE/recipes"
                     ]
                   ]
                 }

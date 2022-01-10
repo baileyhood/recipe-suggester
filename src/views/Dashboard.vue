@@ -52,7 +52,7 @@ export default {
   },
   async mounted () {
     this.userInfo = await Auth.currentAuthenticatedUser()
-    API.get('recipeAPI', '/items').then((result) => {
+    API.get('recipeAPI', '/recipes').then((result) => {
       console.log({ result })
     }).catch((error) => { console.error(error) })
   }

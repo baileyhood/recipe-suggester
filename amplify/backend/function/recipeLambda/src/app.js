@@ -26,7 +26,7 @@ const partitionKeyType = 'S'
 const sortKeyName = ''
 const sortKeyType = ''
 const hasSortKey = sortKeyName !== ''
-const path = '/items'
+const path = '/recipes'
 const UNAUTH = 'UNAUTH'
 const hashKeyPath = '/:' + partitionKeyName
 const sortKeyPath = hasSortKey ? '/:' + sortKeyName : ''
@@ -52,7 +52,7 @@ const convertUrlType = (param, type) => {
   }
 }
 
-app.get('/items', function (request, response) {
+app.get('/recipes', function (request, response) {
   var params = {
     TableName: tableName,
     Select: 'ALL_ATTRIBUTES'
