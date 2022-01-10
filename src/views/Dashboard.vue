@@ -25,6 +25,12 @@
     <section class="section section--lightgrey">
       <section class="section__inner row">
         <Headline level="2" size="2" class="u-text-center">Recipes</Headline>
+        <div>
+          <Card v-for="(recipe, index) in recipes" :key="index">
+            {{ recipe.title }}
+            <img :src="recipe.image" alt="">
+          </Card>
+        </div>
       </section>
     </section>
   </main>
@@ -47,13 +53,14 @@ export default {
   },
   data () {
     return {
-      userInfo: {}
+      userInfo: {},
+      recipes: {}
     }
   },
   async mounted () {
     this.userInfo = await Auth.currentAuthenticatedUser()
     API.get('recipeAPI', '/recipes').then((result) => {
-      console.log({ result })
+      this.recipes = result.data
     }).catch((error) => { console.error(error) })
   }
 }
