@@ -6,10 +6,12 @@
         <div class="col-xs-12 col-md-7 col-lg-6  u-site-vertical-margin@mobile">
           <div class="row">
             <Headline level="1" size="1">Find recipes with ingredients you already&nbsp;have.</Headline>
-            <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
-            <div class="dashboard__hero-button-container">
-              <Button class="dashboard__hero-button" level="primary">Get Started</Button>
-              <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
+            <div>
+              <p class="dashboard__hero-subheadline">Don’t go to the grocery store when you already have the ingredients you need to make a delicious dish.</p>
+              <div class="dashboard__hero-button-container">
+                <Button class="dashboard__hero-button" level="primary">Get Started</Button>
+                <Button class="dashboard__hero-button" level="secondary">Explore Recipes</Button>
+              </div>
             </div>
           </div>
         </div>
@@ -27,8 +29,8 @@
         <Headline level="2" size="2" class="u-text-center">Recipes</Headline>
         <div>
           <Card v-for="(recipe, index) in recipes" :key="index">
-            {{ recipe.title }}
             <img :src="recipe.image" alt="">
+            <p class="u-font-primary">{{ recipe.title }}</p>
           </Card>
         </div>
       </section>
@@ -94,7 +96,7 @@ export default {
     }
 
     &__hero-subheadline {
-      max-width: 400px;
+      max-width: 500px;
     }
 
     &__hero-image-container {
