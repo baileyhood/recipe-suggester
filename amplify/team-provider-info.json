@@ -14,12 +14,6 @@
     "categories": {
       "auth": {
         "recipesuggesterb6bb5a1d": {}
-      },
-      "function": {
-        "recipeLambda": {
-          "deploymentBucketName": "amplify-recipesuggester-dev-125058-deployment",
-          "s3Key": "amplify-builds/recipeLambda-4a4d31665041754c3336-build.zip"
-        }
       }
     }
   }

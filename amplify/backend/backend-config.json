@@ -25,51 +25,12 @@
       }
     }
   },
-  "api": {
-    "recipeAPI": {
-      "service": "API Gateway",
-      "providerPlugin": "awscloudformation",
-      "dependsOn": [
-        {
-          "category": "function",
-          "resourceName": "recipeLambda",
-          "attributes": [
-            "Name",
-            "Arn"
-          ]
-        }
-      ]
-    }
-  },
+  "api": {},
   "storage": {
-    "recipeTable": {
-      "service": "DynamoDB",
-      "providerPlugin": "awscloudformation"
-    },
     "webApp": {
       "service": "S3",
       "providerPlugin": "awscloudformation"
     }
   },
-  "function": {
-    "recipeLambda": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "storage",
-          "resourceName": "recipeTable",
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "attributeEnvMap": {
-            "Name": "TABLE_NAME",
-            "Arn": "TABLE_ARN"
-          }
-        }
-      ]
-    }
-  }
+  "function": {}
 }

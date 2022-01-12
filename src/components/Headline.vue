@@ -55,6 +55,7 @@ $headline-margin-space: rem-calc(30);
 
   .c-headline-2 {
     font-size: rem-calc(40);
+    margin-bottom: $headline-margin-space;
   }
 
   .c-headline-3 {
