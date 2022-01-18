@@ -25,7 +25,23 @@
       }
     }
   },
-  "api": {},
+  "api": {
+    "recipesuggester": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authrecipesuggesterb6bb5a1d"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  },
   "storage": {
     "webApp": {
       "service": "S3",

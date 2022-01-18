@@ -1,0 +1,18 @@
+type Ingredient @model {
+  id: ID!
+  name: String!
+  recipes: [RecipeIngredients] @connection(name: "IngredientRecipes")
+}
+
+# Connect Ingredient and Recipe to create many-to-many relationship
+type RecipeIngredients @model {
+  id: ID!
+  ingredient: Ingredient @connection(name: "IngredientRecipes")
+  recipe: Recipe @connection(name: "RecipeIngredients")
+}
+
+type Recipe @model {
+  id: ID!
+  name: String
+  ingredients: [RecipeIngredients] @connection(name: "RecipeIngredients")
+}
