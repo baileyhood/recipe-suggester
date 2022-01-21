@@ -13,6 +13,7 @@ type RecipeIngredients @model {
 
 type Recipe @model {
   id: ID!
-  name: String
+  name: String!
+  image: String!
   ingredients: [RecipeIngredients] @connection(name: "RecipeIngredients")
 }

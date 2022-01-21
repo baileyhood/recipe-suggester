@@ -12,7 +12,6 @@ export const createIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -34,7 +33,6 @@ export const updateIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -56,7 +54,6 @@ export const deleteIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -74,7 +71,6 @@ export const createRecipeIngredients = /* GraphQL */ `
   ) {
     createRecipeIngredients(input: $input, condition: $condition) {
       id
-      content
       ingredient {
         id
         name
@@ -87,6 +83,7 @@ export const createRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -105,7 +102,6 @@ export const updateRecipeIngredients = /* GraphQL */ `
   ) {
     updateRecipeIngredients(input: $input, condition: $condition) {
       id
-      content
       ingredient {
         id
         name
@@ -118,6 +114,7 @@ export const updateRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -136,7 +133,6 @@ export const deleteRecipeIngredients = /* GraphQL */ `
   ) {
     deleteRecipeIngredients(input: $input, condition: $condition) {
       id
-      content
       ingredient {
         id
         name
@@ -149,6 +145,7 @@ export const deleteRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -168,10 +165,10 @@ export const createRecipe = /* GraphQL */ `
     createRecipe(input: $input, condition: $condition) {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -190,10 +187,10 @@ export const updateRecipe = /* GraphQL */ `
     updateRecipe(input: $input, condition: $condition) {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -212,10 +209,10 @@ export const deleteRecipe = /* GraphQL */ `
     deleteRecipe(input: $input, condition: $condition) {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }

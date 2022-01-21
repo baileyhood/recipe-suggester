@@ -6,3 +6,6 @@ Helpful resources:
 - Amplify CLI documentation: https://docs.amplify.aws/cli
 - More details on this folder & generated files: https://docs.amplify.aws/cli/reference/files
 - Join Amplify's community: https://amplify.aws/community/
+
+## API resources:
+- [Tutorial](https://www.youtube.com/watch?v=eUQvsuO6EnU&list=PLMx29yZ5Nnnul0NDYVObALVHodtEOAI0c&index=3&t=1179s) on creating many-to-many relationship

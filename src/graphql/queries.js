@@ -9,7 +9,6 @@ export const getIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -44,7 +43,6 @@ export const getRecipeIngredients = /* GraphQL */ `
   query GetRecipeIngredients($id: ID!) {
     getRecipeIngredients(id: $id) {
       id
-      content
       ingredient {
         id
         name
@@ -57,6 +55,7 @@ export const getRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -81,7 +80,6 @@ export const listRecipeIngredientss = /* GraphQL */ `
     ) {
       items {
         id
-        content
         ingredient {
           id
           name
@@ -91,6 +89,7 @@ export const listRecipeIngredientss = /* GraphQL */ `
         recipe {
           id
           name
+          image
           createdAt
           updatedAt
         }
@@ -106,10 +105,10 @@ export const getRecipe = /* GraphQL */ `
     getRecipe(id: $id) {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -130,7 +129,14 @@ export const listRecipes = /* GraphQL */ `
       items {
         id
         name
+        image
         ingredients {
+          items {
+            ingredient {
+              name
+              id
+            }
+          }
           nextToken
         }
         createdAt

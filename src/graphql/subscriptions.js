@@ -9,7 +9,6 @@ export const onCreateIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -28,7 +27,6 @@ export const onUpdateIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -47,7 +45,6 @@ export const onDeleteIngredient = /* GraphQL */ `
       recipes {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -62,7 +59,6 @@ export const onCreateRecipeIngredients = /* GraphQL */ `
   subscription OnCreateRecipeIngredients {
     onCreateRecipeIngredients {
       id
-      content
       ingredient {
         id
         name
@@ -75,6 +71,7 @@ export const onCreateRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -90,7 +87,6 @@ export const onUpdateRecipeIngredients = /* GraphQL */ `
   subscription OnUpdateRecipeIngredients {
     onUpdateRecipeIngredients {
       id
-      content
       ingredient {
         id
         name
@@ -103,6 +99,7 @@ export const onUpdateRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -118,7 +115,6 @@ export const onDeleteRecipeIngredients = /* GraphQL */ `
   subscription OnDeleteRecipeIngredients {
     onDeleteRecipeIngredients {
       id
-      content
       ingredient {
         id
         name
@@ -131,6 +127,7 @@ export const onDeleteRecipeIngredients = /* GraphQL */ `
       recipe {
         id
         name
+        image
         ingredients {
           nextToken
         }
@@ -147,10 +144,10 @@ export const onCreateRecipe = /* GraphQL */ `
     onCreateRecipe {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -166,10 +163,10 @@ export const onUpdateRecipe = /* GraphQL */ `
     onUpdateRecipe {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }
@@ -185,10 +182,10 @@ export const onDeleteRecipe = /* GraphQL */ `
     onDeleteRecipe {
       id
       name
+      image
       ingredients {
         items {
           id
-          content
           createdAt
           updatedAt
         }

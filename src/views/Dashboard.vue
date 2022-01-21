@@ -30,7 +30,8 @@
         <div>
           <Card v-for="(recipe, index) in recipes" :key="index">
             <img :src="recipe.image" alt="">
-            <p class="u-font-primary">{{ recipe.title }}</p>
+            <p class="u-font-primary">{{ recipe.name }}</p>
+            <p>{{ getIngredientList(recipe.ingredients.items) }}</p>
           </Card>
         </div>
       </section>
@@ -39,11 +40,12 @@
 </template>
 
 <script>
-import { Auth, API } from 'aws-amplify'
+import { Auth, API, graphqlOperation } from 'aws-amplify'
 import Button from '@/components/Button'
 import Card from '@/components/Card'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
+import { listRecipes } from '@/graphql/queries'
 
 export default {
   name: 'Dashboard',
@@ -59,11 +61,21 @@ export default {
       recipes: {}
     }
   },
+  methods: {
+    getIngredientList (ingredientList) {
+      const getPunctuation = (currentIndex) => {
+        return ingredientList.length === currentIndex + 1 ? '.' : ','
+      }
+      const combinedListItems = ingredientList.reduce((previousValue, currentValue, currentIndex) => {
+        return `${previousValue} ${currentValue.ingredient.name}${getPunctuation(currentIndex)}`
+      }, '')
+      return combinedListItems
+    }
+  },
   async mounted () {
     this.userInfo = await Auth.currentAuthenticatedUser()
-    API.get('recipeAPI', '/recipes').then((result) => {
-      this.recipes = result.data
-    }).catch((error) => { console.error(error) })
+    const recipeData = await API.graphql(graphqlOperation(listRecipes))
+    this.recipes = recipeData.data.listRecipes.items
   }
 }
 </script>
