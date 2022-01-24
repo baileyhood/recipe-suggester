@@ -6,7 +6,6 @@ import Amplify from 'aws-amplify'
 import awsconfig from './aws-exports'
 
 // Bootstrap Grid: https://getbootstrap.com/docs/4.0/layout/grid/
-import 'bootstrap/dist/css/bootstrap-grid.css'
 import './assets/scss/global.scss'
 
 Amplify.configure(awsconfig)

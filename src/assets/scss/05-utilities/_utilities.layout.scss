@@ -1,14 +1,36 @@
+.row {
+	display: flex;	
+	flex-direction: column;
+	margin-bottom: rem-calc(20);
+
+	@include breakpoint(desktop-up) {
+		flex-direction: row;
+		margin-bottom: 0;
+		justify-content: space-between;
+	}
+
+	// All elements directly below .row
+	> * {
+		margin-right: rem-calc(20);
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+.row--stacked {
+	flex-direction: column;
+}
+
+.row--unstacked {
+	flex-direction: row;
+	margin-bottom: 0;
+}
+
 .u-align-items-center {
 	align-items: center;
 }
 
-.u-no-gutters {
-	margin-right: 0;
-	margin-left: 0;
-  
-	> .col,
-	> [class*="col-"] {
-	  padding-right: 0;
-	  padding-left: 0;
-	}
-  }
+.u-justify-center {
+	justify-content: center;
+}
