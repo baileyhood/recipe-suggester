@@ -31,13 +31,14 @@
     <section class="section section--lightgrey">
       <div class="section__inner">
         <Headline level="2" size="2" class="u-text-center">Recipes</Headline>
-        <div class="row">
+        <div class="row row--space-evenly u-text-center">
             <Card
               v-for="(recipe, index) in recipes"
               :key="index"
+              class="dashboard__recipe-card"
             >
-              <img :src="recipe.image" alt="">
-              <p class="u-font-primary">{{ recipe.name }}</p>
+              <img :src="recipe.image" class="u-width-100" :alt="recipe.name">
+              <p class="u-font-primary u-margin-top-0 u-margin-bottom-10">{{ recipe.name }}</p>
               <p>{{ getIngredientList(recipe.ingredients.items) }}</p>
             </Card>
           </div>
@@ -131,6 +132,10 @@ export default {
       @include breakpoint(tablet-up) {
         display: block;
       }
+    }
+
+    &__recipe-card {
+      max-width: 280px;
     }
   }
 </style>
