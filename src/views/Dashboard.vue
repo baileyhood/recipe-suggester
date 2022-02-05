@@ -35,11 +35,15 @@
             <Card
               v-for="(recipe, index) in recipes"
               :key="index"
-              class="dashboard__recipe-card"
+              class="dashboard__recipe-card row row--stacked"
             >
-              <img :src="recipe.image" class="u-width-100" :alt="recipe.name">
-              <p class="u-font-primary u-margin-top-0 u-margin-bottom-10">{{ recipe.name }}</p>
+              <img :src="recipe.image" class="u-width-100 u-margin-right-0" :alt="recipe.name">
+              <p class="u-font-primary u-margin-top-10 u-margin-bottom-10">{{ recipe.name }}</p>
               <p>{{ getIngredientList(recipe.ingredients.items) }}</p>
+              <div class="row">
+                <Button @click.native="saveRecipe(recipe)" level="primary" class="c-button--small">Save</Button>
+                <Button level="secondary" class="c-button--small">View</Button>
+              </div>
             </Card>
           </div>
       </div>
@@ -53,7 +57,8 @@ import Button from '@/components/Button'
 import Card from '@/components/Card'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
-import { listRecipes } from '@/graphql/queries'
+import { getRecipe, listRecipes } from '@/graphql/queries'
+import { createFavoriteRecipe } from '@/graphql/mutations'
 
 export default {
   name: 'Dashboard',
@@ -78,6 +83,20 @@ export default {
         return `${previousValue} ${currentValue.ingredient.name}${getPunctuation(currentIndex)}`
       }, '')
       return combinedListItems
+    },
+
+    async saveRecipe (recipe) {
+      console.log(recipe.id)
+      const isDuplicate = await API.graphql(graphqlOperation(getRecipe, {
+        id: recipe.id
+      }))
+      console.log('dup', isDuplicate)
+      API.graphql(graphqlOperation(createFavoriteRecipe, {
+        input: {
+          title: recipe.name,
+          recipeID: recipe.id
+        }
+      }))
     }
   },
   async mounted () {
@@ -135,7 +154,7 @@ export default {
     }
 
     &__recipe-card {
-      max-width: 280px;
+      max-width: 300px;
     }
   }
 </style>

@@ -73,4 +73,8 @@ style.<style lang="scss">
     border: 1px solid $color-primary-green;
     color: $color-primary-green;
   }
+
+  .c-button--small {
+    padding: rem-calc(10);
+  }
 </style>

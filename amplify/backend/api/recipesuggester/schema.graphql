@@ -17,3 +17,12 @@ type Recipe @model {
   image: String!
   ingredients: [RecipeIngredients] @connection(name: "RecipeIngredients")
 }
+
+type FavoriteRecipe
+	@model
+	@auth(rules: [{ allow: owner }])
+{
+  id: ID!
+	title: String!
+  recipeID: String!
+}

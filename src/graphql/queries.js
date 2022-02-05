@@ -146,3 +146,34 @@ export const listRecipes = /* GraphQL */ `
     }
   }
 `;
+export const getFavoriteRecipe = /* GraphQL */ `
+  query GetFavoriteRecipe($id: ID!) {
+    getFavoriteRecipe(id: $id) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const listFavoriteRecipes = /* GraphQL */ `
+  query ListFavoriteRecipes(
+    $filter: ModelFavoriteRecipeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFavoriteRecipes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        title
+        recipeID
+        createdAt
+        updatedAt
+        owner
+      }
+      nextToken
+    }
+  }
+`;

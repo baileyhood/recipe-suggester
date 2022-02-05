@@ -223,3 +223,48 @@ export const deleteRecipe = /* GraphQL */ `
     }
   }
 `;
+export const createFavoriteRecipe = /* GraphQL */ `
+  mutation CreateFavoriteRecipe(
+    $input: CreateFavoriteRecipeInput!
+    $condition: ModelFavoriteRecipeConditionInput
+  ) {
+    createFavoriteRecipe(input: $input, condition: $condition) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const updateFavoriteRecipe = /* GraphQL */ `
+  mutation UpdateFavoriteRecipe(
+    $input: UpdateFavoriteRecipeInput!
+    $condition: ModelFavoriteRecipeConditionInput
+  ) {
+    updateFavoriteRecipe(input: $input, condition: $condition) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const deleteFavoriteRecipe = /* GraphQL */ `
+  mutation DeleteFavoriteRecipe(
+    $input: DeleteFavoriteRecipeInput!
+    $condition: ModelFavoriteRecipeConditionInput
+  ) {
+    deleteFavoriteRecipe(input: $input, condition: $condition) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;

@@ -196,3 +196,39 @@ export const onDeleteRecipe = /* GraphQL */ `
     }
   }
 `;
+export const onCreateFavoriteRecipe = /* GraphQL */ `
+  subscription OnCreateFavoriteRecipe($owner: String!) {
+    onCreateFavoriteRecipe(owner: $owner) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onUpdateFavoriteRecipe = /* GraphQL */ `
+  subscription OnUpdateFavoriteRecipe($owner: String!) {
+    onUpdateFavoriteRecipe(owner: $owner) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
+export const onDeleteFavoriteRecipe = /* GraphQL */ `
+  subscription OnDeleteFavoriteRecipe($owner: String!) {
+    onDeleteFavoriteRecipe(owner: $owner) {
+      id
+      title
+      recipeID
+      createdAt
+      updatedAt
+      owner
+    }
+  }
+`;
