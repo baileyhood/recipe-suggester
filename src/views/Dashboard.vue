@@ -41,7 +41,7 @@
               <p class="u-font-primary u-margin-top-10 u-margin-bottom-10">{{ recipe.name }}</p>
               <p>{{ getIngredientList(recipe.ingredients.items) }}</p>
               <div class="row">
-                <Button @click.native="saveRecipe(recipe)" level="primary" class="c-button--small">Save</Button>
+                <Button v-if="!recipe.isFavorited" @click.native="saveRecipe(recipe)" level="primary" class="c-button--small">Save</Button>
                 <Button level="secondary" class="c-button--small">View</Button>
               </div>
             </Card>
@@ -57,7 +57,7 @@ import Button from '@/components/Button'
 import Card from '@/components/Card'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
-import { listRecipes, getFavoriteRecipe } from '@/graphql/queries'
+import { listRecipes, listFavoriteRecipes } from '@/graphql/queries'
 import { createFavoriteRecipe } from '@/graphql/mutations'
 
 export default {
@@ -85,30 +85,33 @@ export default {
       return combinedListItems
     },
 
-    async isDuplicate (recipe) {
-      const response = await API.graphql(graphqlOperation(getFavoriteRecipe, {
-        id: recipe.id
-      }))
-      return response.data.getFavoriteRecipe
+    markFavorites (favoriteRecipes, allRecipes) {
+      const allRecipeData = allRecipes.data.listRecipes.items
+      const favoriteRecipesData = favoriteRecipes.data.listFavoriteRecipes.items
+      return allRecipeData.map((recipe) => {
+        const isFavorited = favoriteRecipesData.filter((favoriteRecipe) => favoriteRecipe.id === recipe.id).length > 0
+        recipe.isFavorited = isFavorited
+        return recipe
+      })
     },
 
     async saveRecipe (recipe) {
-      const isDuplicate = await this.isDuplicate(recipe)
-      if (!isDuplicate) {
-        API.graphql(graphqlOperation(createFavoriteRecipe, {
-          input: {
-            id: recipe.id,
-            title: recipe.name,
-            recipeID: recipe.id
-          }
-        }))
-      }
+      API.graphql(graphqlOperation(createFavoriteRecipe, {
+        input: {
+          id: recipe.id,
+          title: recipe.name,
+          recipeID: recipe.id
+        }
+      }))
     }
   },
   async mounted () {
     this.userInfo = await Auth.currentAuthenticatedUser()
-    const recipeData = await API.graphql(graphqlOperation(listRecipes))
-    this.recipes = recipeData.data.listRecipes.items
+    const favoriteRecipes = await API.graphql(graphqlOperation(listFavoriteRecipes))
+    const allRecipes = await API.graphql(graphqlOperation(listRecipes))
+    const markedFavorites = this.markFavorites(favoriteRecipes, allRecipes)
+    console.log('marked', markedFavorites)
+    this.recipes = markedFavorites
   }
 }
 </script>
