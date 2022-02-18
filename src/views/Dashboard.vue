@@ -57,7 +57,7 @@ import Button from '@/components/Button'
 import Card from '@/components/Card'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
-import { getRecipe, listRecipes } from '@/graphql/queries'
+import { listRecipes, getFavoriteRecipe } from '@/graphql/queries'
 import { createFavoriteRecipe } from '@/graphql/mutations'
 
 export default {
@@ -85,19 +85,24 @@ export default {
       return combinedListItems
     },
 
-    async saveRecipe (recipe) {
-      console.log(recipe.id)
-      const isDuplicate = await API.graphql(graphqlOperation(getRecipe, {
+    async isDuplicate (recipe) {
+      const response = await API.graphql(graphqlOperation(getFavoriteRecipe, {
         id: recipe.id
       }))
-      console.log('dup', isDuplicate)
-      API.graphql(graphqlOperation(createFavoriteRecipe, {
-        input: {
-          id: recipe.id,
-          title: recipe.name,
-          recipeID: recipe.id
-        }
-      }))
+      return response.data.getFavoriteRecipe
+    },
+
+    async saveRecipe (recipe) {
+      const isDuplicate = await this.isDuplicate(recipe)
+      if (!isDuplicate) {
+        API.graphql(graphqlOperation(createFavoriteRecipe, {
+          input: {
+            id: recipe.id,
+            title: recipe.name,
+            recipeID: recipe.id
+          }
+        }))
+      }
     }
   },
   async mounted () {
