@@ -93,6 +93,7 @@ export default {
       console.log('dup', isDuplicate)
       API.graphql(graphqlOperation(createFavoriteRecipe, {
         input: {
+          id: recipe.id,
           title: recipe.name,
           recipeID: recipe.id
         }
