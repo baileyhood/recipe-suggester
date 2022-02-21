@@ -41,7 +41,22 @@
               <p class="u-font-primary u-margin-top-10 u-margin-bottom-10">{{ recipe.name }}</p>
               <p>{{ getIngredientList(recipe.ingredients.items) }}</p>
               <div class="row">
-                <Button v-if="!recipe.isFavorited" @click.native="saveRecipe(recipe)" level="primary" class="c-button--small">Save</Button>
+                <Button
+                  v-if="!recipe.isFavorited"
+                  @click.native="saveRecipe(recipe)"
+                  level="primary"
+                  class="c-button--small"
+                >
+                  Save
+                </Button>
+                <Button
+                  v-else
+                  @click.native="removeRecipe(recipe)"
+                  level="primary"
+                  class="c-button--small"
+                >
+                  Remove
+                </Button>
                 <Button level="secondary" class="c-button--small">View</Button>
               </div>
             </Card>
@@ -58,7 +73,7 @@ import Card from '@/components/Card'
 import Headline from '@/components/Headline'
 import Navigation from '@/components/Navigation'
 import { listRecipes, listFavoriteRecipes } from '@/graphql/queries'
-import { createFavoriteRecipe } from '@/graphql/mutations'
+import { createFavoriteRecipe, deleteFavoriteRecipe } from '@/graphql/mutations'
 
 export default {
   name: 'Dashboard',
@@ -95,6 +110,16 @@ export default {
       })
     },
 
+    updateFavoritedState (recipe) {
+      const updatedRecipes = this.recipes.map((currentRecipe) => {
+        if (currentRecipe.id === recipe.id) {
+          currentRecipe.isFavorited = !currentRecipe.isFavorited
+        }
+        return currentRecipe
+      })
+      return updatedRecipes
+    },
+
     async saveRecipe (recipe) {
       API.graphql(graphqlOperation(createFavoriteRecipe, {
         input: {
@@ -103,6 +128,17 @@ export default {
           recipeID: recipe.id
         }
       }))
+      this.recipes = this.updateFavoritedState(recipe)
+    },
+
+    async removeRecipe (recipe) {
+      await API.graphql(graphqlOperation(deleteFavoriteRecipe, {
+        input: {
+          id: recipe.id
+        }
+      }
+      ))
+      this.recipes = this.updateFavoritedState(recipe)
     }
   },
   async mounted () {
@@ -110,7 +146,6 @@ export default {
     const favoriteRecipes = await API.graphql(graphqlOperation(listFavoriteRecipes))
     const allRecipes = await API.graphql(graphqlOperation(listRecipes))
     const markedFavorites = this.markFavorites(favoriteRecipes, allRecipes)
-    console.log('marked', markedFavorites)
     this.recipes = markedFavorites
   }
 }
