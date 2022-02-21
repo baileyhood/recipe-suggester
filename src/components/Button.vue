@@ -7,6 +7,7 @@
     ]"
     :to="getLink"
   >
+    <img v-if="icon" class="c-button__icon" :src="require(`@/assets/icons/${getIcon}.svg`)" alt="">
     <slot></slot>
   </component>
 </template>
@@ -30,12 +31,19 @@ export default {
         'secondary',
         'tertiary'
       ].includes(value.toLowerCase())
+    },
+
+    icon: {
+      type: String
     }
   },
 
   computed: {
     getLink () {
       return this.linkTo ? { name: this.linkTo } : null
+    },
+    getIcon () {
+      return 'icon-white-checkmark'
     },
     type () {
       return this.linkTo ? 'router-link' : 'button'
@@ -60,6 +68,12 @@ style.<style lang="scss">
   @include breakpoint(tablet-up) {
     font-size: rem-calc(16);
     padding: rem-calc(15) rem-calc(10);
+  }
+
+  &__icon {
+    max-width: 15px;
+    position: relative;
+    top: 2px;
   }
 }
 

@@ -44,7 +44,7 @@
                 <Button
                   v-if="!recipe.isFavorited"
                   @click.native="saveRecipe(recipe)"
-                  level="primary"
+                  level="secondary"
                   class="c-button--small"
                 >
                   Save
@@ -54,8 +54,9 @@
                   @click.native="removeRecipe(recipe)"
                   level="primary"
                   class="c-button--small"
+                  icon="checkmark"
                 >
-                  Remove
+                  Saved
                 </Button>
                 <Button level="secondary" class="c-button--small">View</Button>
               </div>
